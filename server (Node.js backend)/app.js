@@ -21,6 +21,7 @@ app.post('/submit-image', upload.single('image'), async (req, res) => {
     } catch (error) {
         console.error("Error calling the color analysis service:", error);  // Logging an error if the color analysis service call fails
         res.status(500).send("Failed to analyze colors");  // Sending an error response with status code 500
+        const imageFilePath = req.file.path;
     }
 });
 
